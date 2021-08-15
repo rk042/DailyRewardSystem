@@ -13,13 +13,20 @@ public static class SaveAndLoad
     {
         Debug.Log("save data");
 
+        if (File.Exists(FilePath))
+        {
+            File.Delete(FilePath);
+
+            Debug.LogError("file deleted");
+        }
+
         //path of file
         string filepath = FilePath;
         
         //conver object to json
         string json = JsonUtility.ToJson(Data);
         
-        Debug.Log(json);
+        Debug.Log("save "+json);
         
         //save file
         File.WriteAllText(filepath, json);                
@@ -28,13 +35,15 @@ public static class SaveAndLoad
     public static void LoadData() 
     {
         if (File.Exists(FilePath))
-        {
-            Debug.Log("LoadData");
-
+        {            
             string load = File.ReadAllText(FilePath);
+
+            Debug.Log("LoadData " + load);
 
             DailyRewardData dailyRewardData = new DailyRewardData();
             dailyRewardData = JsonUtility.FromJson<DailyRewardData>(load);
+
+            GameManager.itemClassesList.Clear();
 
             GameManager.itemClassesList = dailyRewardData.itemClassesList;
         }       

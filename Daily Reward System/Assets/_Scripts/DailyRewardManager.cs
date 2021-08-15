@@ -62,6 +62,9 @@ public class DailyRewardManager : MonoBehaviour
 
     private void OnApplicationQuit()
     {
+        //clear old item
+        GameManager.itemClassesList.Clear();
+
         for (int i = 0; i < _parentOfItems.childCount; i++)
         {
             ItemClass itemClass = new ItemClass();

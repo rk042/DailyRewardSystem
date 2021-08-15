@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public static List<ItemClass> itemClassesList=new List<ItemClass>();
+    public static List<ItemClass> itemClassesList=new List<ItemClass>();    
 }
