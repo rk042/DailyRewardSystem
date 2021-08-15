@@ -12,4 +12,7 @@ public class ItemClass
     public string itemName;
     public string itemAmount;
     public string itemDay;
+
+    public bool IsAveilble;
+    public bool IsCollected;
 }
